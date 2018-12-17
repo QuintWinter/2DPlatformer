@@ -40,7 +40,7 @@ public class SniperEnemy : MonoBehaviour {
 
                     //schiet de projectile naar de speler plaats
                     Vector2 direction = player.transform.position - projectile.transform.position;
-                    projectile.GetComponent<enemyProjectile>().SetDirection(direction);
+                    //projectile.GetComponent<enemyProjectile>().SetDirection(direction);
                     //Destroy(projectile, 3.5f);
                 }
             }

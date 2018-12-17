@@ -14,9 +14,9 @@ public class EnemyMovement : MonoBehaviour
 
     public SpriteRenderer sr;
 
-    public Life life;
+    //public Life life;
     public PlayerController pc;
-    public GameStateManager gameStateManagerScript;
+    //public GameStateManager gameStateManagerScript;
 
     public Vector3 currRot;
 
@@ -46,12 +46,12 @@ public class EnemyMovement : MonoBehaviour
         enemyTrans = this.transform;
         // hier assignen we enemy rigidbody2D van het object waar dit script op zit
         enemyBody = this.GetComponent<Rigidbody2D>();
-        gameStateManagerScript = FindObjectOfType<GameStateManager>();
+        //gameStateManagerScript = FindObjectOfType<GameStateManager>();
         aSource = GetComponent<AudioSource>();
         clip1 = Resources.Load<AudioClip>("ground hit");
         clip2 = Resources.Load<AudioClip>("CLAP");
         //ps = GetComponent<ParticleSystem>();
-        life = GameObject.Find("Player").transform.GetChild(1).GetComponent<Life>();
+        //life = GameObject.Find("Player").transform.GetChild(1).GetComponent<Life>();
         pc = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
@@ -102,7 +102,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (hit.gameObject.tag == "Player")
         {
-            life.Damage();
+            //life.Damage();
             timeDamage = 1;
             if (!flipped)
             {
@@ -114,8 +114,8 @@ public class EnemyMovement : MonoBehaviour
             }
 
             hit.gameObject.GetComponent<PlayerController>();
-            hit.gameObject.transform.GetChild(1).GetComponent<Life>().Damage();
-            StartCoroutine(pc.ColourHit());
+            //hit.gameObject.transform.GetChild(1).GetComponent<Life>().Damage();
+            //StartCoroutine(pc.ColourHit());
             aSource.PlayOneShot(clip2);
             Debug.Log("Damage");
         }

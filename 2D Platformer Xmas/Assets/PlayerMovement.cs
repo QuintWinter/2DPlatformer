@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float maxSpeed;
-    public float jumpTakeOffSpeed;
+    public float maxSpeed = 7;
+    public float jumpTakeOffSpeed = 7;
 
     private Vector2 targetVelocity;
 
@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
 
+    }
+
+    private void FixedUpdate()
+    {
+        Movement();
     }
 
     void Movement()
