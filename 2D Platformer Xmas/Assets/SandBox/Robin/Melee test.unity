@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d39aed3c779a944ab9dee0c3a893a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 809584295}
+  health: 30
 --- !u!50 &809584300
 Rigidbody2D:
   serializedVersion: 4
@@ -355,8 +355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b48b8ddaaabab49944028126280f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  Cooldown: 0
+  CooldownTime: 1
   distance: 2
-  front: 1
   speed: 5
   vector: {x: 0, y: 0}
 --- !u!61 &1280346651
