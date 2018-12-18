@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Systems.Singleton;
 
 public class ShootingFlyingEnemy : MonoBehaviour {
 
@@ -8,8 +9,7 @@ public class ShootingFlyingEnemy : MonoBehaviour {
     Vector2 directionVector2;
     float timer;
     float speed = 1;
-    public GameObject laserBolt;
-    public GameObject robo;
+    public GameObject enemyProjectile;
 
     GameObject player;
 
@@ -49,13 +49,13 @@ public class ShootingFlyingEnemy : MonoBehaviour {
             timer = 0;
 
             //instatiate laser
-            GameObject laser = Instantiate(laserBolt,transform.position, Quaternion.identity) as GameObject;
+            GameObject projectile = Instantiate(enemyProjectile, transform.position, Quaternion.identity) as GameObject;
 
             //waar begint de laser
-            laser.transform.position = transform.position;
+            projectile.transform.position = transform.position;
 
             //schiet de laser naar de speler plaats
-            Vector2 direction = player.transform.position - laser.transform.position;
+            Vector2 direction = player.transform.position - projectile.transform.position;
             //laser.GetComponent<LaserBolt>().SetDirection(direction);
         }
     }
