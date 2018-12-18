@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Collectibles : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public int specialAttackMeter;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        print("collider hit");
+        if (other.gameObject.CompareTag("collectible"))
+        {
+            other.gameObject.SetActive(false);
+            specialAttackMeter++;
+            print(specialAttackMeter);
+        }
+    }
 }
