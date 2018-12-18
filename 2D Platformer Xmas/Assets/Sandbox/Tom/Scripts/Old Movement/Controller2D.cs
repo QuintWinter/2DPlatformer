@@ -127,9 +127,6 @@ public class Controller2D : MonoBehaviour
     private Vector3 activeGlobalPlatformPoint;
     private Vector3 lastPlatformVelocity;
 
-    // This is used to keep track of special effects in UpdateEffects ();
-    private bool areEmittersOn = false;
-
     void Awake()
     {
         movement = new PlatformerControllerMovement();
@@ -293,21 +290,6 @@ public class Controller2D : MonoBehaviour
         jump.lastButtonTime = -10;
     }
 
-    //void UpdateEffects()
-    //{
-    //    bool wereEmittersOn = areEmittersOn;
-    //    areEmittersOn = jump.jumping && movement.verticalSpeed > 0.0;
-
-    //    // By comparing the previous value of areEmittersOn to the new one, we will only update the particle emitters when needed
-    //    if (wereEmittersOn != areEmittersOn)
-    //    {
-    //        foreach (ParticleEmitter emitter in GetComponentsInChildren<ParticleEmitter>())
-    //        {
-    //            emitter.emit = areEmittersOn;
-    //        }
-    //    }
-    //}
-
     void Update()
     {
         if (Input.GetButtonDown("Jump") && canControl)
@@ -362,11 +344,6 @@ public class Controller2D : MonoBehaviour
             activeLocalPlatformPoint = activePlatform.InverseTransformPoint(transform.position);
         }
 
-        // Set rotation to the move direction  
-        if (movement.direction.sqrMagnitude > 0.01 && !Input.GetButton("Shoot"))
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement.direction), Time.deltaTime * movement.rotationSmoothing);
-        else transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement.direction), Time.deltaTime * 100);
-
         // We are in jump mode but just became grounded
         if (controller.isGrounded)
         {
@@ -385,9 +362,6 @@ public class Controller2D : MonoBehaviour
                     movement.direction = jumpMoveDirection.normalized;
             }
         }
-
-        // Update special effects like rocket pack particle effects
-        //UpdateEffects();
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
