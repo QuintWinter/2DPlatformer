@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Collectibles : MonoBehaviour {
 
-    public int specialAttackMeter;
+    public static Collectibles instace;
+    public int specialAttackMeter = 20; 
+
+    void Start()
+    {
+        instace = this;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
