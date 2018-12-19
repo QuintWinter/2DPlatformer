@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour {
 
-    //float speed = 2.7f;
     Vector2 directionVector2;
     bool isReady = true;
 
@@ -12,7 +11,6 @@ public class EnemyProjectile : MonoBehaviour {
     {
         Vector3 playerpos = GameObject.FindWithTag("Player").transform.position;
 
-        //Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
         playerpos.x = playerpos.x - transform.position.x;
         playerpos.y = playerpos.y - transform.position.y;
 
@@ -27,9 +25,6 @@ public class EnemyProjectile : MonoBehaviour {
 
     public void SetDirection(Vector2 direction)
     {
-        //directionVector2 = direction.normalized;
-        
-
         isReady = true;
     }
 
@@ -37,12 +32,6 @@ public class EnemyProjectile : MonoBehaviour {
     {
         if (isReady == true)
         {
-            //Vector2 position = transform.position;
-
-            //position += directionVector2 * speed * Time.deltaTime;
-
-            //transform.position = position;
-
             transform.Translate(Vector2.right * Time.deltaTime * 3);
         }
     }
