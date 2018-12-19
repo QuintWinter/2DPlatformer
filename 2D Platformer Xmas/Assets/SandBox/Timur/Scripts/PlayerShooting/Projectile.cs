@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour {
     public float speed;
     public float lifeTime;
     public float distance;
-    public int damage;
+    public int damage = 1;
     //voeg nog een enemy en enviroment layermask toe;
     public LayerMask whatIsSolid;
 
