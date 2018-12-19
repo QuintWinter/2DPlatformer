@@ -13,6 +13,13 @@ public class Melee : MonoBehaviour
 
     public Vector2 vector;
 
+    SoundManagerPlayer smp;
+
+    private void Awake()
+    {
+        smp = GetComponent<SoundManagerPlayer>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -31,6 +38,8 @@ public class Melee : MonoBehaviour
                 //Check if Ray hits a Collider that has the tag "Enemy"
                 if (hit.collider != null && hit.collider.tag == "Enemy")
                 {
+                    smp.PlayHit();
+
                     //call Kill function from EnemyController script.
                     EnemyController enemy = hit.collider.gameObject.GetComponent<EnemyController>();
                     enemy.Kill(damage);
