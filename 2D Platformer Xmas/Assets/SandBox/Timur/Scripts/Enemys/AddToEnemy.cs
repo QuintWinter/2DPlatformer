@@ -5,14 +5,14 @@ using UnityEngine;
 public class AddToEnemy : MonoBehaviour {
 
     public int health;
-    public GameObject deathEffect;
+   // public GameObject deathEffect;
 
     public void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
+         //   Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
