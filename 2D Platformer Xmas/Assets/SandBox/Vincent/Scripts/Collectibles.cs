@@ -5,7 +5,8 @@ using UnityEngine;
 public class Collectibles : MonoBehaviour {
 
     public static Collectibles instace;
-    public int specialAttackMeter = 20; 
+    public int specialAttackMeter = 20;
+    private float timer = 3f;
 
     void Start()
     {
@@ -17,9 +18,20 @@ public class Collectibles : MonoBehaviour {
         print("collider hit");
         if (other.gameObject.CompareTag("collectible"))
         {
-            other.gameObject.SetActive(false);
-            specialAttackMeter++;
-            print(specialAttackMeter);
+            Collider2D colide = other.gameObject.GetComponent<Collider2D>();
+            colide.enabled = false;
+
+            StartCoroutine(WaitForSeconds(timer, other.gameObject));
+
+
         }
+    }
+
+    IEnumerator WaitForSeconds(float t, GameObject gameObject)
+    {
+        yield return new WaitForSeconds(t);
+        gameObject.SetActive(false);
+        specialAttackMeter++;
+        print(specialAttackMeter);
     }
 }
