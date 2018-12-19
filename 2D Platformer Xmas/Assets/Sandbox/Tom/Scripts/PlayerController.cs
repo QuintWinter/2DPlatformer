@@ -4,51 +4,62 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float maxSpeed = 7;
-    public float jumpTakeOffSpeed = 7;
-    public GameObject ps;
-    //private SpriteRenderer spriteRenderer;
+    public float speed;
+    public float jumpForce;
+    public float checkRadius;
+    private float moveInput;
 
-    // Use this for initialization
-    void Awake()
+    public int extraJumpValue;
+    private int extraJumps;
+
+    private bool isGrounded;
+
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
+
+    private SpriteRenderer sprite;
+    private Rigidbody2D rb;
+
+    private void Start()
     {
-        //spriteRenderer = GetComponent<SpriteRenderer>();
+        extraJumps = extraJumpValue;
+        rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
-    protected void ComputeVelocity()
+    private void FixedUpdate()
     {
-        //Vector2 move = Vector2.zero;
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
-        //move.x = Input.GetAxis("Horizontal");
+        moveInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
-        //bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < -0.01f));
-        /*
-        if (move.x > 0.01f || move.x < -0.01f)
-        {
-            ps.SetActive(true);
-        }
-        else
-        {
-            ps.SetActive(false);
-        }
-        */
-        /*
-        if (move.x > 0.01f)
-        {
-            turn.transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else
-        {
-            turn.transform.rotation = Quaternion.Euler(0, -90, 0);
-        }
-        */
-        //if (flipSprite)
-        //{
-        //    spriteRenderer.flipX = !spriteRenderer.flipX;
-        //}
-        //animator.SetBool("grounded", grounded);
-        //animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
+        if (moveInput > 0)
+            sprite.flipX = false;
+        else if (moveInput < 0)
+            sprite.flipX = true;
 
-        //targetVelocity = move * maxSpeed;
+        if (!isGrounded)
+        {
+            rb.velocity -= new Vector2(0, 15f * Time.deltaTime);
+        }
     }
+
+    private void Update()
+    {
+        if (isGrounded)
+        {
+            extraJumps = extraJumpValue;
+        }
+        if (Input.GetButtonDown("Jump") && extraJumps > 0)
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            extraJumps--;
+        }
+        else if (Input.GetButtonDown("Jump") && extraJumps == 0 && isGrounded)
+        {
+            rb.velocity = Vector2.up * jumpForce;
+        }
+    }
+
 }
