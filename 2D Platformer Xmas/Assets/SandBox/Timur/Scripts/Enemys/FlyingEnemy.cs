@@ -50,41 +50,6 @@ public class FlyingEnemy : MonoBehaviour
         {
              transform.Translate(randomVector2 * Time.deltaTime * 0.5f);
         } 
-
-        if(directionVector2.x >= 0)
-        {
-            animationB.SetBool("rechts", true);
-        } else
-        {
-            animationB.SetBool("rechts", false);
-        }
-
-        if (directionVector2.x <= 0)
-        {
-            animationB.SetBool("links", true);
-        }
-        else
-        {
-            animationB.SetBool("links", false);
-        }
-
-        if (directionVector2.y >= 0 && directionVector2.x <= 1 || directionVector2.y >= 0 && directionVector2.x <= -1)
-        {
-            animationB.SetBool("voor", true);
-        }
-        else
-        {
-            animationB.SetBool("voor", false);
-        }
-
-        if (directionVector2.y <= 0 && directionVector2.x <= 1 || directionVector2.y <= 0 && directionVector2.x <= -1)
-        {
-            animationB.SetBool("achter", true);
-        }
-        else
-        {
-            animationB.SetBool("achter", false);
-        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
