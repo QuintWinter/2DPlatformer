@@ -51,12 +51,4 @@ public class FlyingEnemy : MonoBehaviour
              transform.Translate(randomVector2 * Time.deltaTime * 0.5f);
         } 
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player" && counter <= 0)
-        {
-            counter = 1.5f;
-        }
-    }
 }
