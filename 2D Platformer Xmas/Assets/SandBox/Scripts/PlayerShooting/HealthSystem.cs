@@ -10,6 +10,13 @@ public class HealthSystem : MonoBehaviour {
     float timer = 3;
     public Image[] hearts;
     public Sprite emptyHeart, fullHeart;
+    AudioSource AS;
+    public AudioClip die;
+
+    private void Awake()
+    {
+        AS = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -31,6 +38,7 @@ public class HealthSystem : MonoBehaviour {
     {
         if(collision.tag == "Enemy" && timer >= 3)
         {
+            AS.PlayOneShot(die);
             health -= 1;
             timer = 0;
             if(health <= 0)
