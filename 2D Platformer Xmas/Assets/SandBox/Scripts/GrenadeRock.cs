@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GrenadeRock : MonoBehaviour
 {
 
     private float timer;
     private Collectibles coll;
-    [SerializeField] private float throwForce = 10;
-
+    private float throwForce = 10;
+    public GameObject popup;
     public GameObject granada;
 
     void Start()
@@ -16,29 +17,28 @@ public class GrenadeRock : MonoBehaviour
         coll = GetComponent<Collectibles>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if(coll.specialAttackMeter >= 5)
         {
-            timer += Time.deltaTime;
-            print(timer);
+            popup.SetActive(true);
+        }
+        else
+        {
+            popup.SetActive(false);
         }
 
         if (Input.GetKeyUp(KeyCode.Q))
         {
-            if (timer >= 2 && coll.specialAttackMeter >= 10)
+            if (coll.specialAttackMeter >= 5)
             {
                 print("nadeOut");
-                timer = 0;
-                coll.specialAttackMeter = coll.specialAttackMeter - 10;
-                //throw grenade rock;
+                coll.specialAttackMeter -= 5;
                 GameObject insta = Instantiate(granada, this.transform);
+                coll.score.text = coll.specialAttackMeter.ToString();
 
                 insta.GetComponent<Rigidbody2D>().AddForce(granada.transform.right * throwForce, ForceMode2D.Impulse);
-                //thisproj.rigidbody2D.AddForce(thisproj.transform.forward * shootforce);
             }
-            timer = 0;
         }
     }
 }

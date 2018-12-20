@@ -17,7 +17,6 @@ public class FlyingEnemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        randomVector2 = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
         animationB = GetComponent<Animator>();
     }
 
@@ -35,7 +34,7 @@ public class FlyingEnemy : MonoBehaviour
         distance = Vector2.Distance(player.transform.position, gameObject.transform.position);
 
 
-        if (distance < 6 && distance > 0.5f)
+        if (distance < 20 && distance > 0.5f)
         {
             //ga naar de player positie
             Vector2 direction = player.transform.position - transform.position;
@@ -46,9 +45,6 @@ public class FlyingEnemy : MonoBehaviour
             positionP += directionVector2 * speed * Time.deltaTime;
 
             transform.position = positionP;
-        } else
-        {
-             transform.Translate(randomVector2 * Time.deltaTime * 0.5f);
         } 
     }
 }

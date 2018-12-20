@@ -9,7 +9,7 @@ public class Nest : MonoBehaviour
     float timer;
     public GameObject enemy1, enemy2;
     float enemyType;
-    float shoottime = 0.6f;
+    float shoottime = 2;
 
     GameObject player;
 
@@ -27,7 +27,7 @@ public class Nest : MonoBehaviour
         if (timer > shoottime)
         {
             distance = Vector2.Distance(player.transform.position, gameObject.transform.position);
-            if (distance < 7.5f)
+            if (distance < 20)
             {
                 if (timer > shoottime)
                 {

@@ -8,7 +8,7 @@ public class ShootingEnemy : MonoBehaviour {
     float timer;
     public GameObject enemyProjectile;
 
-    float shoottime = 0.6f;
+    float shoottime = 1.5f;
 
     GameObject player;
 
@@ -25,7 +25,7 @@ public class ShootingEnemy : MonoBehaviour {
         //zoek naar de speler en krijg de afstand
         if(timer > shoottime) {
             distance = Vector2.Distance(player.transform.position, gameObject.transform.position);
-            if (distance < 7.5f)
+            if (distance < 25)
             {
                 if (timer > shoottime)
                 {
@@ -41,7 +41,7 @@ public class ShootingEnemy : MonoBehaviour {
                     //schiet de projectile naar de speler plaats
                     Vector2 direction = player.transform.position - projectile.transform.position;
                     projectile.GetComponent<EnemyProjectile>().SetDirection(direction);
-                    //Destroy(projectile, 3.5f);
+                    //Destroy(projectile);
                 }
             }
         }

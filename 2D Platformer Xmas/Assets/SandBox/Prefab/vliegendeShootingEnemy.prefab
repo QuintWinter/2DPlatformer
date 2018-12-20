@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4993734975683692}
   - component: {fileID: 212254249868919190}
-  - component: {fileID: 58894535351194094}
   - component: {fileID: 114415886555594670}
   - component: {fileID: 114841068557354916}
   - component: {fileID: 58181216232813218}
-  m_Layer: 0
+  - component: {fileID: 58891456605360988}
+  m_Layer: 9
   m_Name: vliegendeShootingEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.14910102}
   serializedVersion: 2
   m_Radius: 0.33
---- !u!58 &58894535351194094
+--- !u!58 &58891456605360988
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,7 +73,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.14910102}
   serializedVersion: 2
-  m_Radius: 0.35089898
+  m_Radius: 0.3
 --- !u!114 &114415886555594670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,7 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7324a8c25cfe124f9fd59ee465d034d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyProjectile: {fileID: 0}
+  enemyProjectile: {fileID: 1125659575930124, guid: 7388b14e98308e642ab46cc5efca824c,
+    type: 2}
 --- !u!114 &114841068557354916
 MonoBehaviour:
   m_ObjectHideFlags: 1

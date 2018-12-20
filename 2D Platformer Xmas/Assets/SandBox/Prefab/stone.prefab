@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4010383071049300}
   - component: {fileID: 212010965230408746}
   - component: {fileID: 114418929846401680}
+  - component: {fileID: 58422929653569590}
   m_Layer: 0
   m_Name: stone
   m_TagString: Untagged
@@ -35,12 +36,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385929298979260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.415, y: -0.357, z: 0}
+  m_LocalPosition: {x: -36.62996, y: -3.0627432, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58422929653569590
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1385929298979260}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.49999997
 --- !u!114 &114418929846401680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,14 +68,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1026937d311cab646ba06c4a0098b401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  lifeTime: 0
+  speed: 15
+  lifeTime: 4
   distance: 0
   damage: 1
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 0
-  destroyEffect: {fileID: 0}
+    m_Bits: 1536
 --- !u!212 &212010965230408746
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -31,7 +31,7 @@ public class ShootingFlyingEnemy : MonoBehaviour {
         //zoek naar de speler en krijg de afstand
         distance = Vector2.Distance(player.transform.position, gameObject.transform.position);
 
-        if (distance < 15 && distance > 4f)
+        if (distance < 20 && distance > 3)
         {
             //ga naar de player positie
             Vector2 direction = player.transform.position - transform.position;
@@ -44,7 +44,7 @@ public class ShootingFlyingEnemy : MonoBehaviour {
             transform.position = positionP;
         }
 
-        if (distance < 5 && timer > 3)
+        if (distance < 25 && timer > 3)
         {
             timer = 0;
 

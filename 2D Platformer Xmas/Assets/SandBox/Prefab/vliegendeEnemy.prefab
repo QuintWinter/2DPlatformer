@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4054701001945184}
   - component: {fileID: 212470374407894196}
   - component: {fileID: 114942050204954936}
-  - component: {fileID: 58506617980976852}
   - component: {fileID: 114355640554916020}
   - component: {fileID: 58212740026520566}
-  m_Layer: 0
+  - component: {fileID: 58081135402576006}
+  m_Layer: 9
   m_Name: vliegendeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -44,6 +44,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58081135402576006
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802536811492098}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.14910102}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!58 &58212740026520566
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -59,21 +74,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.14910102}
   serializedVersion: 2
   m_Radius: 0.33
---- !u!58 &58506617980976852
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1802536811492098}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.004, y: 0.15}
-  serializedVersion: 2
-  m_Radius: 0.37
 --- !u!114 &114355640554916020
 MonoBehaviour:
   m_ObjectHideFlags: 1

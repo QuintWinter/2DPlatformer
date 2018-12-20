@@ -4,35 +4,29 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed = 1f;
-    public bool flipped;
+    public float speed;
 
-    public Vector3 currRot;
+    private bool movingRight = true;
 
-    Transform enemyTrans;
+    public Transform groundDetection;
 
-    public Rigidbody2D enemyBody;
-
-    private void Start()
+    private void Update()
     {
-        enemyTrans = this.transform;
-        enemyBody = this.GetComponent<Rigidbody2D>();
-    }
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
 
-    private void FixedUpdate()
-    {
-        Vector2 enemyVel = enemyBody.velocity;
-        enemyVel.x = -enemyTrans.right.x * speed;
-        enemyBody.velocity = enemyVel;
-    }
-
-    private void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (coll.gameObject.tag == "TurnPoint")
+        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 2f);
+        if (groundInfo.collider == false)
         {
-            currRot = enemyTrans.eulerAngles;
-            currRot.y += 180;
-            enemyTrans.eulerAngles = currRot;
+            if(movingRight == true)
+            {
+                transform.eulerAngles = new Vector3(0, -180, 0);
+                movingRight = false;
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                movingRight = true;
+            }
         }
     }
 }

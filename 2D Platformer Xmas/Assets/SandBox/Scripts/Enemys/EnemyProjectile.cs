@@ -6,6 +6,8 @@ public class EnemyProjectile : MonoBehaviour {
 
     Vector2 directionVector2;
     bool isReady = true;
+    public float distance;
+    public LayerMask whatIsSolid;
 
     private void Start()
     {
@@ -17,12 +19,6 @@ public class EnemyProjectile : MonoBehaviour {
         float angle = Mathf.Atan2(playerpos.y, playerpos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
-
-    void Awake()
-    {
-        //isReady = false;
-    }
-
     public void SetDirection(Vector2 direction)
     {
         isReady = true;
@@ -32,13 +28,24 @@ public class EnemyProjectile : MonoBehaviour {
     {
         if (isReady == true)
         {
-            transform.Translate(Vector2.right * Time.deltaTime * 3);
+            transform.Translate(Vector2.right * Time.deltaTime * 10);
         }
     }
 
-    void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-            Destroy(gameObject);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsSolid);
+        if (hitInfo.collider != null)
+        {
+            DestroyProjectile();
+        }
+
     }
+
+    void DestroyProjectile()
+    {
+        Destroy(gameObject);
+    }
+
 
 }
