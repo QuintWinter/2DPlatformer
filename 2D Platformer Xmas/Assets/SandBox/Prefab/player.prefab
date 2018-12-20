@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114131572333721924}
   - component: {fileID: 50834860832988302}
   - component: {fileID: 70683749627107342}
+  - component: {fileID: 114893820810801360}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -187,7 +188,7 @@ MonoBehaviour:
   groundCheck: {fileID: 4553056405549274}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1536
 --- !u!114 &114131572333721924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   specialAttackMeter: 0
+  score: {fileID: 0}
 --- !u!114 &114330249932167594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,6 +235,19 @@ MonoBehaviour:
   - {fileID: 0}
   emptyHeart: {fileID: 21300002, guid: 2237de4ee73924a4ca0c79864500f140, type: 3}
   fullHeart: {fileID: 21300000, guid: 2237de4ee73924a4ca0c79864500f140, type: 3}
+--- !u!114 &114893820810801360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402286843418764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc62253d85749e5479aa51113bfe30ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 0}
+  granada: {fileID: 1619293671871658, guid: 690c1147a46fec34ea407a51acdc51fa, type: 2}
 --- !u!212 &212141206883612658
 SpriteRenderer:
   m_ObjectHideFlags: 1
