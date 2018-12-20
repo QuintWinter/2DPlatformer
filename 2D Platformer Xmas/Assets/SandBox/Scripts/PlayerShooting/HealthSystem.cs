@@ -36,7 +36,7 @@ public class HealthSystem : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy" && timer >= 3)
+        if(collision.tag == "Enemy" && timer >= 1.5f)
         {
             AS.PlayOneShot(die);
             health -= 1;

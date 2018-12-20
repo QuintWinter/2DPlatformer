@@ -72,7 +72,7 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1619293671871658}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 657fb141d8d336a488ad57eb400360df, type: 2}
   m_IsTrigger: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
   radius: {fileID: 58450560265533894}
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   distance: 0.1
 --- !u!198 &198469659530412036
 ParticleSystem:
