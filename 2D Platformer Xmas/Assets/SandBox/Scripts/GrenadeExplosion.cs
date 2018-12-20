@@ -28,16 +28,16 @@ public class GrenadeExplosion : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
 
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsSolid);
-        if (hitInfo.collider != null)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            if (hitInfo.collider.CompareTag("Enemy"))
-            {
-                //laat enemy damage krijgen
-                Debug.Log("take damage");
-                hitInfo.collider.GetComponent<AddToEnemy>().TakeDamage(10);
-            }
+
+            other.gameObject.GetComponent<AddToEnemy>().TakeDamage(10);
         }
     }
+
+
 }
