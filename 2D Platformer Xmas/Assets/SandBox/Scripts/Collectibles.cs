@@ -9,10 +9,13 @@ public class Collectibles : MonoBehaviour {
     public int specialAttackMeter = 0;
     private float timer = 3f;
     public Text score;
+    AudioSource AS;
+    public AudioClip pickup;
 
     void Start()
     {
         instace = this;
+        AS = GetComponent<AudioSource>();
     }
 
     IEnumerator WaitForSeconds(float t, GameObject woGameobject)
@@ -27,7 +30,7 @@ public class Collectibles : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("collectible"))
         {
-
+            AS.PlayOneShot(pickup);
             StartCoroutine(WaitForSeconds(0.01f, other.gameObject));
 
 

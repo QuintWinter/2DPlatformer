@@ -20,11 +20,15 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
 
+    AudioSource AS;
+    public AudioClip woosh, jump;
+
     private void Start()
     {
         extraJumps = extraJumpValue;
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        AS = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -54,11 +58,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
+            AS.PlayOneShot(jump);
             extraJumps--;
         }
         else if (Input.GetButtonDown("Jump") && extraJumps == 0 && isGrounded)
         {
             rb.velocity = Vector2.up * jumpForce;
+            AS.PlayOneShot(jump);
         }
     }
 
